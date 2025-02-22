@@ -13,7 +13,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children}) => {
           scrollbarWidth: 'none',  
           msOverflowStyle: 'none', 
           WebkitOverflowScrolling: 'touch', 
-        }}>{children}</div>
+        }} className="w-screen">{children}</div>
    <Footer/>
    </>
   )
