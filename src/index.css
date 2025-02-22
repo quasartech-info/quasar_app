@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @import 'antd/dist/reset.css';
+
+
+/* font configuration */
+
+
+:root {
+        --color-primary: #a552de;
+        --color-secondary: #5e02ff;
+        --color-background: #000000;
+        --color-primary25: #f0afa9;
+}
