@@ -8,7 +8,12 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children}) => {
   return (
    <>
    <NavBar/>
-   <div>{children}</div>
+   <div  style={{
+          overflow: 'auto', 
+          scrollbarWidth: 'none',  
+          msOverflowStyle: 'none', 
+          WebkitOverflowScrolling: 'touch', 
+        }}>{children}</div>
    <Footer/>
    </>
   )

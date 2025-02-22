@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from "../../assets/logo.png";
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 interface NavItem {
   label: string;
@@ -21,7 +22,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   return (
-    <nav className="sticky w-full bg-white backdrop-blur-sm z-50 shadow">
+    <nav className="sticky top-0 w-full bg-white backdrop-blur-sm z-50 shadow">
       <div className="px-4 sm:px-6 xl:px-16 py-2 flex justify-between w-full items-center">
         <div className="flex items-center justify-between h-16 w-full">
           {/* Logo */}
@@ -68,9 +69,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu with Animation */}
       {isOpen && (
-        <div className="xl:hidden">
+        <motion.div
+          className="xl:hidden absolute w-screen top-20"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.3 }}
+        >
           <div className="px-4 py-4 flex flex-col gap-4 sm:px-3 bg-white">
             {navItems.map((item) => (
               <Link
@@ -83,7 +90,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );
